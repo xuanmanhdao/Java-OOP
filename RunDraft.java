@@ -20,7 +20,7 @@ public class RunDraft {
 		Student studentC = new Student();
 		studentC.setId("70DCHT210234");
 		studentC.setName("Dao Xuan ZZZ");
-		studentC.setAge(20);
+		studentC.setAge(89);
 		studentC.setHeight(1.7f);
 
 		// Set friend
@@ -37,10 +37,7 @@ public class RunDraft {
 		listFriendOfStudentC.add(studentB);
 		studentC.setFriends(listFriendOfStudentC);
 
-		System.out.println("ID: " + studentC.getId());
-		System.out.println("Name: " + studentC.getName());
-		System.out.println("Age: " + studentC.getAge());
-		System.out.println("Height: " + studentC.getHeight());
+		studentC.getInfo();
 		studentC.walk("Hanoi");
 
 		// // Get friend cach 1
@@ -52,13 +49,28 @@ public class RunDraft {
 		// System.out.println("Height friend: " + student.getHeight() + "|");
 		// }
 
+		ArrayList<String> arrayListIdFriend=new ArrayList<>();
 		// Get friend cach 2
 		System.out.println("-----Thong tin ban be------");
 		for (int i = 0; i < studentC.getFriends().size(); i++) {
-			System.out.println("ID friend: " + studentC.getFriends().get(i).getId() + ", ");
-			System.out.println("Name friend: " + studentC.getFriends().get(i).getName() + ", ");
-			System.out.println("Age friend: " + studentC.getFriends().get(i).getAge() + ", ");
-			System.out.println("Height friend: " + studentC.getFriends().get(i).getHeight() + "|");
+			System.out.println("STT: " + i);
+			studentC.getFriends().get(i).getInfo();
+			arrayListIdFriend.add(i, studentC.getFriends().get(i).getId());
 		}
+
+		// Set array id friend
+		studentC.setArrayIdFriend(arrayListIdFriend);
+		// show array id friend
+		System.out.println("All id friend");
+		for (String item : studentC.getArrayIdFriend()) {
+			System.out.print(item + ',');
+		}
+		System.out.println();
+
+		System.out.println("-----So sinh vien hien tai------");
+		System.out.println("University (from class): " + Student.universityName);
+		System.out.println("University (from instance): " + studentC.universityName);
+		System.out.println("Total student (from class): " + Student.total);
+		Student.getInfoUniversity();
 	}
 }
